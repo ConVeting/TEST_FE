@@ -3,20 +3,20 @@ import './carousel.css';
 
 // 슬라이드 내용 데이터
 const slidesData = [
-    { id: 1, text: "곰돌이는 '포근'", img: "./img/bear.png" },
-    { id: 2, text: "고양이는 '야옹'", img: "./img/cat.png" },
-    { id: 3, text: "강아지는 '멍멍'", img: "./img/dog.png" }
+    { id: 1, title: "곰돌이는 '포근'", text: "강아지는 '멍멍'", linktext: "강아지는 '멍멍'", img: "/img/bear.png" },
+    { id: 2, title: "고양이는 '야옹'", text: "강아지는 '멍멍'", linktext: "강아지는 '멍멍'", img: "/img/cat.png" },
+    { id: 3, title: "강아지는 '멍멍'", text: "강아지는 '멍멍'", linktext: "강아지는 '멍멍'", img: "/img/dog.png" }
 ];
 
 //슬라이드 (슬라이드 내용 + 이미지)
-const Slide = ({ children, img_id }) => (
+const Slide = ({ children, img }) => (
     <div className="slide">
-        <span>{children}</span>
-        <div id={`slide_img_${img_id}`}></div>
+        {children}
+        <div style={{ backgroundImage: `url(${img})` }} className="slide_img"></div>
     </div>
 );
 
-//캐러셀 버튼 - 슬라이드 넘기는 : 
+//슬라이드 넘길 수 있는 버튼, 활성화 시 active 클래스 부여 및 길이 변화
 const CarouselButtons = ({ imgNum, current, handleButtonClick }) => (
     <div className="button_con">
         {/* 슬라이드 개수(imgNum) 만큼 버튼 동적 생성 */}
@@ -32,10 +32,12 @@ const CarouselButtons = ({ imgNum, current, handleButtonClick }) => (
 
 export default function Carousel() {
     const containerRef = useRef(null);
+    //현재 활성화된 슬라이드 번호
     const [current, setCurrent] = useState(1);
-    const imgNum = 4;
+    //슬라이드 데이터 개수(길이만큼)
+    const imgNum = slidesData.length;
 
-    //carou_container를 움직임 좌우로 이동하는 클래스
+    //carousel_container를 움직임 좌우로 이동하는 클래스
     const moveContainer = (percent) => {
         if (containerRef.current) {
             containerRef.current.style.transform = `translateX(${percent}%)`;
@@ -48,6 +50,7 @@ export default function Carousel() {
         setCurrent(index + 1);
     };
 
+    //슬라이드 오른쪽으로 한칸 이동(마지막 슬라이드 시 맨앞으로 가기)
     const rightClick = () => {
         if (current < imgNum) {
             moveContainer(-current * (100 / imgNum));
@@ -57,16 +60,16 @@ export default function Carousel() {
             setCurrent(1);
         }
     };
-
-    const leftClick = () => {
-        if (current > 1) {
-            moveContainer(-(current - 2) * 100 / imgNum);
-            setCurrent(current - 1);
-        } else {
-            moveContainer(-(imgNum - 1) * 100 / imgNum);
-            setCurrent(imgNum);
-        }
-    };
+    // 왼쪽버튼(왼쪽 슬라이드로 이동)
+    // const leftClick = () => {
+    //     if (current > 1) {
+    //         moveContainer(-(current - 2) * 100 / imgNum);
+    //         setCurrent(current - 1);
+    //     } else {
+    //         moveContainer(-(imgNum - 1) * 100 / imgNum);
+    //         setCurrent(imgNum);
+    //     }
+    // };
 
     useEffect(() => {
         const interval = setInterval(rightClick, 3000);
@@ -75,20 +78,21 @@ export default function Carousel() {
 
     return (
         <div className="carousel_box">
-            <div className="carousel">
-                <div className="con_padding">
-                    <div className="con_box">
-                        <div className="carou_container" ref={containerRef} style={{ width: `${imgNum * 100}%`}}>
-                            <Slide img_id={1}>곰돌이는 '포근'</Slide>
-                            <Slide img_id={2}>고양이는 '야옹'</Slide>
-                            <Slide img_id={3}>강아지는 '멍멍'</Slide>
-                            <Slide img_id={3}>강아지는 '뭉뭉'</Slide>
-                        </div>
-                    </div>
+            {/* 보여주는 부분 (넘치는 부분 hidden) */}
+            <div className="carousel_content">
+                {/* 슬라이드 나열 */}
+                <div className="carousel_container" ref={containerRef} style={{ width: `${imgNum * 100}%`}}>
+                    {slidesData.map(slide => (
+                        <Slide key={slide.id} img={slide.img}>
+                            {slide.title} <br/>
+                            {slide.text} <br/>
+                            {slide.linktext} <br/>
+                        </Slide>
+                    ))}
                 </div>
-                <div className="pad">
-                    <CarouselButtons imgNum={imgNum} current={current} handleButtonClick={handleButtonClick} />
-                </div>
+            </div>
+            <div className="pad">
+                <CarouselButtons imgNum={imgNum} current={current} handleButtonClick={handleButtonClick} />
             </div>
         </div>
     );
