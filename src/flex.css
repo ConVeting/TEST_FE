@@ -11,11 +11,9 @@
 .item_long { 
     grid-column-start: 1;
     grid-column-end: 3;
-    text-align: center;
 }
 /* 그리드 세로 한칸 */
 .item {
-    text-align: center;
 }
 
 /* 섹션 이동 버튼 */
