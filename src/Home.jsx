@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import "./App.css";
 import"./flex.css";
-import Carousel from './Jiwon_compo/caurousel';
+import Carousel from './Jiwon_compo/carousel';
 
 class Home extends React.Component {
   render() {  
