@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 
 export function useNavigationHandlers() {
+    // 나비게이트 간결화
     const navigate = useNavigate();
 
     const move_talk_main = () => navigate('/Talk/talk_main');

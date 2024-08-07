@@ -2,23 +2,12 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import "./App.css";
 import"./flex.css";
-import App_footer from './app_footer'
 import Carousel from './Jiwon_compo/carousel';
+import { useNavigationHandlers } from './Navigate';
+import SignUpForm from './Jiwon_Login/Login_test';
 
 export default function Home() {
-  const navigate = useNavigate();
-
-  const move_talk_main = () => {
-    navigate('/Talk/talk_main');
-  };
-
-  const move_ai_main = () => {
-    navigate('/Ai/ai_main');
-  };
-
-  const move_blog_skin = () => {
-    navigate('/Blog/blog_skin');
-  };
+  const { move_talk_main, move_ai_main, move_blog_skin, move_home, move_mypage } = useNavigationHandlers();
 
   return (     
     <div className='frame'>
@@ -37,6 +26,7 @@ export default function Home() {
         </div>
         <div className='item_long'>
           캘린더가 들어갈 자리
+          <SignUpForm/>
         </div>
       </div>
     </div>
