@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import "./App.css";
 import"./flex.css";
-import Carousel from './Jiwon_compo/caurousel';
+import Carousel from './Jiwon_compo/carousel';
 
 class Home extends React.Component {
   render() {  
@@ -36,8 +36,8 @@ class Home extends React.Component {
             <button className='btn_move_section communitybtn_img' onClick={move_blog_skin}> 커뮤니티 </button>
           </div>
           <div className='item_long'>
-            <h1> 광고 배너가 보일 부분 </h1>
-            {/* <Carousel/> */}
+            {/* <h1> 광고 배너가 보일 부분 </h1> */}
+            <Carousel/>
           </div>
           <div className='item_long'>
             <button onClick={move_flex}> flex 테스트 </button>
