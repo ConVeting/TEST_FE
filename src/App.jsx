@@ -5,7 +5,6 @@ import "./App.css";
 import App_header from './app_header.jsx';
 import App_footer from './app_footer.jsx';
 import Home from './Home.jsx';
-import Flex from './flex.jsx';
 import Talk_main from './Talk/talk_main.jsx';
 import Login from './Login/login.jsx';
 import Blog_skin from './Blog/blog_skin.jsx';
@@ -23,7 +22,6 @@ class App extends React.Component {
         <Routes>
           <Route path='/Home' element={<Home />} />
           <Route path='/Talk/talk_main' element={<Talk_main />} />
-          <Route path='/Flex' element={<Flex />} />
           <Route path='/Ai/ai_main' element={<Ai_main />} />
           <Route path='/Login/login' element={<Login />} />
           <Route path='/Blog/blog_skin' element={<Blog_skin />} />
