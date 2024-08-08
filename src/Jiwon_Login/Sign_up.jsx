@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { InputField, InputField_id_login, InputField_pwd_login } from '../Jiwon_compo/Form_compo/login_input';
-import { Button_submit } from '../Jiwon_compo/Form_compo/button_submit';
+import { Button_submit, Button_Login } from '../Jiwon_compo/Form_compo/button_submit';
 
 const SignUpForm = () => {
     const [id, setIdUser] = useState(''); //유저 id (중복 없게 할 예정)
@@ -80,6 +80,7 @@ const SignUpForm = () => {
               placeholder="사용자 이름"
             />
             <Button_submit text="회원가입"/>
+            <Button_Login/>
           </form>
           {message && <p>{message}</p>}
         </div>

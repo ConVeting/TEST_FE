@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useUser } from '../User_Context'; // UserContext에서 useUser 훅을 가져옵니다.
 import { useNavigate } from 'react-router-dom'; // 로그인 후 페이지 이동을 위해 사용합니다.
 import { InputField_id_login, InputField_pwd_login } from '../Jiwon_compo/Form_compo/login_input';
-import { Button_submit } from '../Jiwon_compo/Form_compo/button_submit';
+import { Button_submit, Button_Signup } from '../Jiwon_compo/Form_compo/button_submit';
 
 const LoginForm = () => {
   const [id, setId] = useState('');
@@ -42,6 +42,7 @@ const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button_submit text="로그인"/>
+        <Button_Signup/>
       </form>
       {message && <p>{message}</p>}
     </div>

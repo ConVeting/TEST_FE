@@ -4,6 +4,7 @@ import "./App.css";
 import"./flex.css";
 import Carousel from './Jiwon_compo/carousel';
 import { useNavigationHandlers } from './Navigate';
+
 //회원가입, 로그인 test
 import SignUpForm from './Jiwon_Login/Sign_up';
 import LoginForm from './Jiwon_Login/Login_test';
@@ -33,16 +34,16 @@ export default function Home() {
           <Carousel/>
         </div>
         <div className='item_long'>
-          {/* <CalendarApp/> */}
+          <CalendarApp/>
           캘린더가 들어갈 자리
-          {user ? (
+          {/* {user ? (
             <UserProfile/>
           ) : (
             <div>
               <SignUpForm />
               <LoginForm/>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
