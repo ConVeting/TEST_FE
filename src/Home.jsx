@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import "./App.css";
 import"./flex.css";
 import Carousel from './Jiwon_compo/carousel';
 import { useNavigationHandlers } from './Navigate';
-import SignUpForm from './Jiwon_Login/Login_test';
+//회원가입, 로그인 test
+import SignUpForm from './Jiwon_Login/Sign_up';
+import LoginForm from './Jiwon_Login/Login_test';
+import UserProfile from './Jiwon_Login/UserProfile';
+//로그인 한번에 관리
+import { useUser } from './User_Context';
+import CalendarApp from './Test';
 
 export default function Home() {
-  const { move_talk_main, move_ai_main, move_blog_skin, move_home, move_mypage } = useNavigationHandlers();
+  const { move_talk_main, move_ai_main, move_blog_skin } = useNavigationHandlers();
+
+  const { user, login, logout } = useUser();
 
   return (     
     <div className='frame'>
@@ -25,8 +33,16 @@ export default function Home() {
           <Carousel/>
         </div>
         <div className='item_long'>
+          {/* <CalendarApp/> */}
           캘린더가 들어갈 자리
-          <SignUpForm/>
+          {user ? (
+            <UserProfile/>
+          ) : (
+            <div>
+              <SignUpForm />
+              <LoginForm/>
+            </div>
+          )}
         </div>
       </div>
     </div>

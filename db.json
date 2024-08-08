@@ -1,9 +1,14 @@
 {
   "users": [
     {
-      "id": "ㅁ",
-      "name_user": "ㅁ",
-      "password": "a"
+      "id": "ppg0226",
+      "name_user": "지원채",
+      "password": "1234"
+    },
+    {
+      "id": "ting77",
+      "name_user": "김레빗",
+      "password": "1234"
     }
   ]
 }
