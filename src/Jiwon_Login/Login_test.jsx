@@ -4,7 +4,7 @@ import { useUser } from '../User_Context'; // UserContext에서 useUser 훅을 �
 import { useNavigate } from 'react-router-dom'; // 로그인 후 페이지 이동을 위해 사용합니다.
 import { InputField_id_login, InputField_pwd_login } from '../Jiwon_compo/Form_compo/login_input';
 import { Button_submit, Button_Signup } from '../Jiwon_compo/Form_compo/button_submit';
-
+import './Login_Signup.css'
 const LoginForm = () => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
@@ -31,8 +31,8 @@ const LoginForm = () => {
 
   return (
     <div>
-      <h2>로그인</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="form_login_signup" onSubmit={handleSubmit}>
+        <div className='title'>로그인</div>
         <InputField_id_login
           value={id}
           onChange={(e) => setId(e.target.value)}

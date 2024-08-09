@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <UserProvider>
-        <div className='frame'>
+        <div className='frame1'>
           <App_header />
           <Routes>
             {/* 로그인 회원가입 */}

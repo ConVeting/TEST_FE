@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './login_input.css'
 // 아이디(로그인시) 입력 필드
 const InputField_id_login = ({value, onChange }) => {
   return (

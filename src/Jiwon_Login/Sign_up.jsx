@@ -3,6 +3,7 @@ import axios from 'axios';
 import { InputField, InputField_id_login, InputField_pwd_login } from '../Jiwon_compo/Form_compo/login_input';
 import { Button_submit, Button_Login } from '../Jiwon_compo/Form_compo/button_submit';
 
+import './Login_Signup.css'
 const SignUpForm = () => {
     const [id, setIdUser] = useState(''); //유저 id (중복 없게 할 예정)
     const [name_user, setNameUser] = useState(''); //유저 이름
@@ -62,8 +63,8 @@ const SignUpForm = () => {
     
       return (
         <div>
-          <h2>회원가입</h2>
-          <form onSubmit={handleSubmit}>
+          <form className='form_login_signup' onSubmit={handleSubmit}>
+            <div className='title'>회원가입</div>
             {isIdAvailable === false && <div style={{color: 'red'}}>이미 사용 중인 ID입니다.</div>}
             {isIdAvailable === true && <div style={{color: 'green'}}>사용 가능한 ID입니다.</div>}
             <InputField_id_login

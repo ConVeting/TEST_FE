@@ -1,4 +1,5 @@
 import React from 'react';
+import './button_submit.css'
 import { useNavigationHandlers } from '../../Navigate';
 import { useUser } from '../../User_Context'; 
 
@@ -11,7 +12,7 @@ const Button_submit = ({text}) => {
 
 //로그인으로 이동하는 버튼
 const Button_Login = () => {
-  const {  move_mypage, move_login, move_signup  } = useNavigationHandlers();
+  const {  move_login } = useNavigationHandlers();
   return (
     <button className="btn_login" onClick={move_login}>Login</button>
   )
@@ -41,11 +42,14 @@ const Button_Logout = () => {
 
 const Button_Loginstate = () => {
   const { user, logout } = useUser();
+  const {  move_mypage  } = useNavigationHandlers();
+
   return(
     <div>
       {user ? (
-          <div>
-            {user.name_user}
+          <div className='header_profile'>
+            <div className='header_profile_username' onClick={move_mypage}>{user.name_user}</div>
+            <button></button>
             <Button_Logout/>
           </div>
           ) : (

@@ -34,7 +34,7 @@ export default function Home() {
           <Carousel/>
         </div>
         <div className='item_long'>
-          <CalendarApp/>
+          {/* <CalendarApp/> */}
           캘린더가 들어갈 자리
           {/* {user ? (
             <UserProfile/>
