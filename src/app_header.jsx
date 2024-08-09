@@ -7,15 +7,17 @@ import Logo from './Image/Logo.png'
 import { Button_Loginstate } from './Jiwon_compo/Form_compo/button_submit';
 export default function App_header(){
   return (
-    <div className='header'>
-      <img src={Logo} alt="컨벳팅" 
-        style={{
-          maxWidth: '100px', 
-          width: '25%',
-          height: 'auto' // 비율 유지
-        }} 
-      />
-      <Button_Loginstate/>
+    <div className='header_padding'>
+      <div className='header'>
+        <img src={Logo} alt="컨벳팅" 
+          style={{
+            maxWidth: '100px', 
+            width: '25%',
+            height: 'auto' // 비율 유지
+          }} 
+        />
+        <Button_Loginstate/>
+      </div>
     </div>
   );
 }
