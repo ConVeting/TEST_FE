@@ -9,11 +9,11 @@ export default function App_footer(){
     return (
     <div className='frame'>
         <div className='footer'>
-        <button className='nav_move_section' onClick={move_ai_main}> AI Check </button>
-        <button className='nav_move_section' onClick={move_blog_skin}> Community </button>
-        <button className='nav_move_section' onClick={move_home}> Home </button>
-        <button className='nav_move_section' onClick={move_talk_main}> History </button>
-        <button className='nav_move_section' onClick={move_mypage}> My Page </button>
+            <button className='nav_move_section' onClick={move_ai_main}> AI Check </button>
+            <button className='nav_move_section' onClick={move_blog_skin}> Community </button>
+            <button className='nav_move_section' onClick={move_home}> Home </button>
+            <button className='nav_move_section' onClick={move_talk_main}> History </button>
+            <button className='nav_move_section' onClick={move_mypage}> My Page </button>
         </div>      
     </div>
     );

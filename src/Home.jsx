@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom';
 import "./App.css";
 import"./flex.css";
 import Carousel from './Jiwon_compo/carousel';
